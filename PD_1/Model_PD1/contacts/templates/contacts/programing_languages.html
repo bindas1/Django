@@ -1,0 +1,16 @@
+{% extends 'base_templates/base.html' %}
+{% load static %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static "contacts/style/languages.css" %}" type="text/css">
+{% endblock %}
+
+{% block jumbotron_content %}
+    <h1>Programing languages</h1>
+    <br>
+    <ul class="list-group">
+    {% for language in languages %}
+        <li class="list-group-item">{{ language }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
