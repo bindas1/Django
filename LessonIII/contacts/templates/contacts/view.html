@@ -1,0 +1,9 @@
+<ol>
+{% for contact in contacts %}
+    <li>{{ contact.first_name }} {{ contact.last_name }}
+    {% if contact.image %}
+        <img src="{{ contact.image.url }}" alt="">
+    {% endif %}
+    </li>
+{% endfor %}
+</ol>

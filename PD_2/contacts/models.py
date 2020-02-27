@@ -60,7 +60,7 @@ class Address(models.Model):
     country = models.CharField(verbose_name=_("Country"), max_length=60)
 
     def __str__(self) -> str:
-        return f'{self.address}'
+        return f'{self.street} {self.number} {self.city}'
 
     class Meta:
         verbose_name = _('Address')
@@ -111,7 +111,7 @@ class EmailField(models.Model):
 
     owner = models.ForeignKey(Person, on_delete=models.CASCADE)
     role = models.CharField(verbose_name=_("Email's role"), max_length=30, choices=EMAIL_CHOICES, blank=True, null=True, default=None)
-    email = models.CharField(verbose_name=_("Email"), max_length=60)
+    email = models.CharField(verbose_name=_("Email"), max_length=60, unique=True)
 
     def __str__(self) -> str:
         return f'{self.email}'
